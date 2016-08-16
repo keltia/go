@@ -280,9 +280,9 @@ type FdSet struct {
 }
 
 const (
-	sizeofIfMsghdr         = 0x64
+	sizeofIfMsghdr         = 0xa8
 	SizeofIfMsghdr         = 0x60
-	sizeofIfData           = 0x54
+	sizeofIfData           = 0x98
 	SizeofIfData           = 0x50
 	SizeofIfaMsghdr        = 0x14
 	SizeofIfmaMsghdr       = 0x10
@@ -314,59 +314,60 @@ type IfMsghdr struct {
 }
 
 type ifData struct {
-	Type        uint8
-	Physical    uint8
-	Addrlen     uint8
-	Hdrlen      uint8
-	Link_state  uint8
-	Vhid        uint8
-	Baudrate_pf uint8
-	Datalen     uint8
-	Mtu         uint32
-	Metric      uint32
-	Baudrate    uint32
-	Ipackets    uint32
-	Ierrors     uint32
-	Opackets    uint32
-	Oerrors     uint32
-	Collisions  uint32
-	Ibytes      uint32
-	Obytes      uint32
-	Imcasts     uint32
-	Omcasts     uint32
-	Iqdrops     uint32
-	Noproto     uint32
-	Hwassist    uint64
-	Epoch       int32
-	Lastchange  Timeval
+	Type              uint8
+	Physical          uint8
+	Addrlen           uint8
+	Hdrlen            uint8
+	Link_state        uint8
+	Vhid              uint8
+	Datalen           uint16
+	Mtu               uint32
+	Metric            uint32
+	Baudrate          uint64
+	Ipackets          uint64
+	Ierrors           uint64
+	Opackets          uint64
+	Oerrors           uint64
+	Collisions        uint64
+	Ibytes            uint64
+	Obytes            uint64
+	Imcasts           uint64
+	Omcasts           uint64
+	Iqdrops           uint64
+	Oqdrops           uint64
+	Noproto           uint64
+	Hwassist          uint64
+       Epoch             int32
+	X__ifi_epoch_pad  [4]byte
+       Lastchange        Timeval
+	X__ifi_lastchange_pad [8]byte
 }
 
 type IfData struct {
-	Type        uint8
-	Physical    uint8
-	Addrlen     uint8
-	Hdrlen      uint8
-	Link_state  uint8
-	Spare_char1 uint8
-	Spare_char2 uint8
-	Datalen     uint8
-	Mtu         uint32
-	Metric      uint32
-	Baudrate    uint32
-	Ipackets    uint32
-	Ierrors     uint32
-	Opackets    uint32
-	Oerrors     uint32
-	Collisions  uint32
-	Ibytes      uint32
-	Obytes      uint32
-	Imcasts     uint32
-	Omcasts     uint32
-	Iqdrops     uint32
-	Noproto     uint32
-	Hwassist    uint32
-	Epoch       int32
-	Lastchange  Timeval
+	Type       uint8
+	Physical   uint8
+	Addrlen    uint8
+	Hdrlen     uint8
+	Link_state uint8
+	Vhid       uint8
+	Datalen    uint16
+	Mtu        uint32
+	Metric     uint32
+	Baudrate   uint32
+	Ipackets   uint32
+	Ierrors    uint32
+	Opackets   uint32
+	Oerrors    uint32
+	Collisions uint32
+	Ibytes     uint32
+	Obytes     uint32
+	Imcasts    uint32
+	Omcasts    uint32
+	Iqdrops    uint32
+	Noproto    uint32
+	Hwassist   uint32
+	Epoch      int32
+	Lastchange Timeval
 }
 
 type IfaMsghdr struct {

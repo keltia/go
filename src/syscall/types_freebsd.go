@@ -106,15 +106,16 @@ struct stat8 {
 
 // This structure is a duplicate of if_data on FreeBSD 8-STABLE.
 // See /usr/include/net/if.h.
+#undef ifi_epoch
+#undef ifi_lastchange
 struct if_data8 {
 	u_char  ifi_type;
 	u_char  ifi_physical;
 	u_char  ifi_addrlen;
 	u_char  ifi_hdrlen;
 	u_char  ifi_link_state;
-	u_char  ifi_spare_char1;
-	u_char  ifi_spare_char2;
-	u_char  ifi_datalen;
+	u_char  ifi_vhid;
+	u_short ifi_datalen;
 	u_long  ifi_mtu;
 	u_long  ifi_metric;
 	u_long  ifi_baudrate;
